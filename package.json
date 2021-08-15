@@ -1,12 +1,14 @@
 {
   "name": "@yangss/remove-line-breaks",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
   "bin": {
     "remove-line-breaks": "dist/index.js"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "lint": "eslint src/* --fix",
@@ -32,7 +34,10 @@
   "publishConfig": {
     "access": "public"
   },
-  "keywords": ["clipboard", "remove-line-breaks"],
+  "keywords": [
+    "clipboard",
+    "remove-line-breaks"
+  ],
   "author": "Nicholas Yang <yss_2016@outlook.com>",
   "repository": {
     "type": "git",
