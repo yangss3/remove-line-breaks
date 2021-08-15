@@ -1,6 +1,6 @@
 {
   "name": "@yangss/remove-line-breaks",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Remove all line breaks from text in your system clipboard",
   "main": "dist/index.js",
   "bin": {
