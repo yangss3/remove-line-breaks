@@ -1,0 +1,41 @@
+{
+  "name": "@yangss/remove-line-breaks",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "bin": {
+    "remove-line-breaks": "dist/index.js"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src/* --fix",
+    "pub": "npm run build & npm version patch & npm publish",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@types/clipboardy": "^2.0.1",
+    "@types/node": "^15.6.0",
+    "@yangss/eslint-config-ts": "^0.1.4",
+    "@yangss/init-git-repo": "^0.0.7",
+    "eslint": "^7.26.0",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.2",
+    "typescript": "^4.3.5"
+  },
+  "lint-staged": {
+    "*.(ts|js)": "eslint --fix"
+  },
+  "dependencies": {
+    "clipboardy": "^2.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": ["clipboard", "remove-line-breaks"],
+  "author": "Nicholas Yang <yss_2016@outlook.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yangss3/remove-line-breaks.git"
+  }
+}
