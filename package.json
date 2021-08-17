@@ -3,6 +3,7 @@
   "version": "0.0.3",
   "description": "Remove all line breaks from text in your system clipboard",
   "main": "dist/index.js",
+  "type": "module",
   "bin": {
     "remove-line-breaks": "dist/index.js"
   },
@@ -29,7 +30,9 @@
     "*.(ts|js)": "eslint --fix"
   },
   "dependencies": {
-    "clipboardy": "^2.3.0"
+    "chalk": "^4.1.2",
+    "clipboardy": "^2.3.0",
+    "meow": "^10.1.1"
   },
   "publishConfig": {
     "access": "public"

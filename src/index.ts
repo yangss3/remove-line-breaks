@@ -1,8 +1,34 @@
 #!/usr/bin/env node
 import clipboardy from 'clipboardy'
+import chalk from 'chalk'
+import meow from 'meow'
+
+const { log } = console
+const { bgBlueBright, yellowBright, grey } = chalk
 
 async function main () {
-  console.log('------Waiting for changes from your clipboard------')
+  const { flags } = meow({
+    importMeta: import.meta,
+    flags: {
+      time: {
+        type: 'number',
+        alias: 't',
+        default: 1000
+      }
+    },
+    help: `
+      Options
+        --time, -t Polling time with default 1000
+
+      Usage
+        ${grey('# default')}
+        remove-line-breaks
+        ${grey('# Check the clipboard every 500ms')}
+        remove-line-breaks -t 500
+    `
+  })
+
+  log(bgBlueBright('------Waiting for changes from your clipboard------'))
   let prev = clipboardy.readSync()
   setInterval(async () => {
     try {
@@ -11,13 +37,13 @@ async function main () {
         prev = text.replace(/\r\n/g, ' ')
         clipboardy.writeSync(prev)
         const len = prev.length
-        console.log(`All line breaks in "${
+        log(`All line breaks in "${yellowBright.underline(`${
           len < 40 ? prev : `${prev.slice(0, 15)}...${prev.slice(-15)}`
-        }" has been removed.`)
-        console.log('------Waiting for changes from your clipboard------')
+        }`)}" has been removed.`)
+        log(bgBlueBright('------Waiting for changes from your clipboard------'))
       }
     } catch (err) {}
-  }, 1000)
+  }, flags.time)
 }
 
 main().catch(err => {
