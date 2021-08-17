@@ -12,8 +12,8 @@
   ],
   "scripts": {
     "build": "tsc",
-    "lint": "eslint src/* --fix",
-    "pub": "npm run build & npm version patch & npm publish",
+    "lint": "eslint dist/* --fix --no-ignore",
+    "pub": "npm run build & npm run lint & npm version patch & npm publish",
     "prepare": "husky install"
   },
   "devDependencies": {
